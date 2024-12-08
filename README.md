@@ -77,7 +77,7 @@ High five!
 
 BUT THIS IS ILLEGAL! I hear you yell.
 
-Here's what ChatGPT says about it - I recommend you ask your lawyer.
+Here's what ChatGPT says about it - I recommend you ask your lawyer about the local laws where you live and then comply because there can be substantial fines.
 
 In the United States, the Federal Communications Commission (FCC) permits low-power, unlicensed AM radio transmissions under specific conditions outlined in Part 15 of its regulations. These provisions are designed to allow hobbyists and other users to operate without an individual license, provided they adhere to certain technical limitations to minimize potential interference with licensed services.
 
