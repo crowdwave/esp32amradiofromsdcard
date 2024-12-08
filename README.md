@@ -6,13 +6,64 @@ Original is at: https://github.com/bitluni/ESP32AMRadioTransmitter
 
 You just need an esp32 with an sd card, plug a wire in to pin 25 (or is it 26? maybe you can experiment).
 
-**Instructions are in the source code for preparing files** https://github.com/crowdwave/esp32amradiofromsdcard/blob/main/main.ino - essentially format the card as fat32 and use ffmpeg to convert your audio files to pcm.
-
-Be aware its illegal to transmit depending on where you live, though some countries have carve out laws for low power hobby transmissions.
-
 **For best results, connect/solder the wire from the esp32 directly to the radio antenna.  Keep this wire as sort as you can.**
 
 Put the esp32 in a shielded box. Put ferrite beads on the wire, Wrap it all in rf shielding tape.
+
+## ------ File Preparation Instructions ------
+
+This guide will help you convert your `.wav` audio files to `.pcm` format.
+
+### Supported Sample Rates (must be in filename):
+- **8000 Hz**  
+  Examples: `music_8000hz.pcm`, `voice_8k.pcm`
+- **11025 Hz**  
+  Example: `music_11025hz.pcm`
+- **22050 Hz**  
+  Examples: `music_22050hz.pcm`, `voice_22k.pcm`
+- **44100 Hz**  
+  Examples: `music_44100hz.pcm`, `voice_44k.pcm`
+- **48000 Hz**  
+  Examples: `music_48000hz.pcm`, `voice_48k.pcm`
+
+---
+
+### Batch Conversion (Convert Multiple Files):
+1. Open a terminal or command prompt.  
+2. Navigate to the folder containing your `.wav` files.  
+3. Run the following command:
+
+   ```bash
+   for f in *.wav; do \
+       rate=$(ffprobe -v error -select_streams a:0 -show_entries stream=sample_rate -of default=nw=1:nk=1 "$f"); \
+       ffmpeg -i "$f" -f s8 -acodec pcm_s8 -ac 1 "${f%.*}_${rate}hz.pcm"; \
+   done
+   ```
+
+#### This will:
+- Convert each `.wav` file in the folder to `.pcm` format.
+- Save the new file with the sample rate in the filename.  
+- Examples: `music_44100hz.pcm`, `voice_22k.pcm`.
+
+---
+
+### Single File Conversion:
+If you want to convert a single file, use:
+
+```bash
+ffmpeg -i input.wav -f s8 -acodec pcm_s8 -ac 1 output_44100hz.pcm
+```
+
+---
+
+### Important Notes:
+- Install `ffmpeg` and `ffprobe` before running commands.
+- **Sample rate MUST be in the filename** (e.g., `_44100hz` or `_44k`).
+- Files without a sample rate in the name will default to **22050 Hz**.
+- Only `.pcm` files will be played.
+- **Hidden files** (starting with `.`) are ignored.
+
+
 
 License
 
