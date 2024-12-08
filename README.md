@@ -8,7 +8,11 @@ You just need an esp32 with an sd card, plug a wire in to pin 25 (or is it 26? m
 
 **For best results, connect/solder the wire from the esp32 directly to the radio antenna.  Keep this wire as sort as you can.**
 
-Put the esp32 in a shielded box. Put ferrite beads on the wire, Wrap it all in rf shielding tape.
+To minimise transmitting interference:
+- Put the esp32 in a shielded box.
+- Put ferrite beads on the wire.
+- Wrap it all in rf shielding tape.
+- Make the wire from the esp32 as short as you can, and solder it directly into the antenna port of the radio you want to play on.
 
 ## ------ File Preparation Instructions ------
 
