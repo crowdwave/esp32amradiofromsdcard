@@ -6,7 +6,7 @@ Original is at: https://github.com/bitluni/ESP32AMRadioTransmitter
 
 You just need an esp32 with an sd card, plug a wire in to pin 25 (or is it 26? maybe you can experiment).
 
-**Instructions are in the source code for preparing files** - essentially format the card as fat32 and use ffmpeg to convert your audio files to pcm.
+**Instructions are in the source code for preparing files** https://github.com/crowdwave/esp32amradiofromsdcard/blob/main/main.ino - essentially format the card as fat32 and use ffmpeg to convert your audio files to pcm.
 
 Be aware its illegal to transmit depending on where you live, though some countries have carve out laws for low power hobby transmissions.
 
