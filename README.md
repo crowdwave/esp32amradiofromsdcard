@@ -10,7 +10,7 @@ Instructions are in the source code for preparing files - essentially format the
 
 Be aware its illegal to transmit depending on where you live, though some countries have carve out laws for low power hobby transmissions.
 
-For best results, connect the wire from the esp32 directly into the radio antenna.  Keep this wire as sort as you can.
+**For best results, connect/solder the wire from the esp32 directly to the radio antenna.  Keep this wire as sort as you can.**
 
 Put the esp32 in a shielded box. Put ferrite beads on the wire, Wrap it all in rf shielding tape.
 
